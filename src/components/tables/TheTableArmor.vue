@@ -80,6 +80,7 @@ const isEmptyState = (id: string) => {
               </td>
               <td
                 v-else-if="
+                  grade.id &&
                   grade.id_title === indexLevels &&
                   grade.status === 'noexist' &&
                   !!isEmptyState(grade.id)
