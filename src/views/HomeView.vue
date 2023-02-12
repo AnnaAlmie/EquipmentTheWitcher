@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
+import TheTableArmor from '@/components/TheTableArmor.vue'
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+    <TheTableArmor />
 </template>
+
+<style lang="scss" scoped>
+
+</style>

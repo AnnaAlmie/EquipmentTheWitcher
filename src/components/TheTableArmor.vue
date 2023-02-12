@@ -23,7 +23,7 @@ let titles = computed(() => {
             <tbody>
                 <tr v-for="title in titles">
                     <td>{{ title }}</td>
-                    <td v-for="item in schools.length">1</td>
+                    <td v-for="item in schools.length">-</td>
                 </tr>
             </tbody>
         </table>
@@ -31,5 +31,21 @@ let titles = computed(() => {
 </template>
 
 <style lang="scss">
+table {
+    width: max-content;
+    border: 1px solid transparent;
+    background-color: rgba($color: var(--color-indigo-opacity), $alpha: 0.5);
 
+    td {
+        border: 1px solid #000;
+        background-color: rgba($color: #fff, $alpha: 0.9);
+        white-space: nowrap;
+        padding: 10px;
+
+        &:not(:first-child) {
+            width: 100px;
+        }
+    }
+
+}
 </style>
