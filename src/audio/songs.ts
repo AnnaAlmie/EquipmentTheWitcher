@@ -12,5 +12,5 @@ import After from './the_witcher_3_wild_hunt_27 After the Storm.mp3'
 import Ladies from './the_witcher_3_wild_hunt_33 Ladies of the Woods.mp3'
 
 export default [
-    Nightingale, Aen, Emhyr, Spikeroog, Silver, Whispers, Hunter, Kaer, Vagabond, Cloak, After, Ladies
+    Aen, Emhyr, Spikeroog, Silver, Whispers, Nightingale, Hunter, Kaer, Vagabond, Cloak, After, Ladies
 ]

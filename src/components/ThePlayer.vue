@@ -1,47 +1,66 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 import { Howl, Howler } from 'howler'
-
+import 'vuetify/dist/vuetify.css'
 import allSongs from '@/audio/songs';
 
-let volume = ref<number>(0.5);
+
 let appearPlayer = ref<boolean>(false);
+let volume = ref<number>(0.5);
+let trackIndex = ref<number>(5);
+let isPlay = ref<boolean>(false);
 
 onMounted(() => {
     setTimeout(() => {
         appearPlayer.value = true
-        console.log()
-    }, 3000)
+    }, 300)
 })
 
 let sound = new Howl({
-    src: allSongs,
+    src: allSongs[trackIndex.value],
     autoplay: false,
     loop: false,
-    volume: volume.value,
+    volume: 0.5,
+    onplay: function (id) {
+
+        isPlay.value = true
+    },
+    onpause: function (id) {
+        console.log(id)
+        isPlay.value = false
+    },
     onend: function () {
-        console.log('Finished!');
+        sound.stop()
+
+        trackIndex.value++
+        sound.play()
     }
 });
-function Play() {
-    sound.play();
-    console.log(sound)
+
+watch(volume,
+    (volume) => {
+        sound.volume(volume)
+    }
+)
+
+function next() {
+    sound.stop()
+
+    trackIndex.value++
+    sound.play()
+    console.log(trackIndex.value, sound)
 }
-function Pause() {
-    sound.pause();
-    console.log(sound)
-}
-// function updateVolume (volume) {
-//     sound.volume(volume)
-// }
 </script>
 
 <template>
-    <Transition name="slide-fade">
-        <div class="player" v-show="appearPlayer">
-            <button @click="Play">play</button>
-            <button @click="Pause">pause</button>
-            <!-- <v-slider v-model="volume" @input="updateVolume(volume)" max="1" step="0.1"></v-slider> -->
+    <Transition name="slide-fade" v-show="appearPlayer">
+        <div class="player">
+            <v-btn>prev</v-btn>
+            <v-btn @click="sound.play()" v-if="!isPlay">play</v-btn>
+            <v-btn @click="sound.pause()" v-else>pause</v-btn>
+            <v-btn @click="next">next</v-btn>
+            <v-slider v-model="volume" direction="vertical" show-ticks min="0" max="1" step="0.1"
+                class="volume"></v-slider>
         </div>
     </Transition>
 </template>
@@ -52,7 +71,15 @@ function Pause() {
     z-index: 10;
     left: 0;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translate(0, -50%);
+    background: grey;
+    padding: 10px;
+    border-radius: 0 5px 5px 0;
+
+    button {
+        display: block;
+    }
+
 }
 
 // transitions 
@@ -67,8 +94,14 @@ function Pause() {
 
     &enter-from,
     &leave-to {
-        transform: translateX(-100%);
+        transform: translate(-100%, -50%);
         opacity: 0;
     }
+}
+</style>
+
+<style lang="scss">
+.volume.v-slider.v-input--vertical .v-input__control {
+    min-height: 150px;
 }
 </style>

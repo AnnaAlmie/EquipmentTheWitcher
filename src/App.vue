@@ -5,8 +5,10 @@ import ThePlayer from './components/ThePlayer.vue';
 </script>
 
 <template>
-  <ThePlayer />
-  <RouterView />
+  <v-app>
+    <ThePlayer />
+    <RouterView />
+  </v-app>
 </template>
 
 <style scoped>

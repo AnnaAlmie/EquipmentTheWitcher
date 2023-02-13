@@ -5,6 +5,7 @@
   --section-gap: 160px;
 }
 
+
 body {
   min-height: 100vh;
   color: var(--color-indigo);
