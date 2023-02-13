@@ -4,9 +4,8 @@ import { Howl, Howler } from 'howler'
 import 'vuetify/dist/vuetify.css'
 import allSongs from '@/audio/songs';
 
-
 let appearPlayer = ref<boolean>(false);
-let volume = ref<number>(0.5);
+let volume = ref<number>(0.3);
 let trackIndex = ref<number>(5);
 let isPlay = ref<boolean>(false);
 
@@ -16,25 +15,16 @@ onMounted(() => {
     }, 300)
 })
 
-let sound = new Howl({
-    src: allSongs[trackIndex.value],
+let howlProps = {
     autoplay: false,
     loop: false,
-    volume: 0.5,
-    onplay: function (id) {
+    volume: volume.value,
+    onend: () => { nextTrack() }
+}
+let sound = new Howl({
+    src: allSongs[trackIndex.value],
+    ...howlProps
 
-        isPlay.value = true
-    },
-    onpause: function (id) {
-        console.log(id)
-        isPlay.value = false
-    },
-    onend: function () {
-        sound.stop()
-
-        trackIndex.value++
-        sound.play()
-    }
 });
 
 watch(volume,
@@ -43,22 +33,53 @@ watch(volume,
     }
 )
 
-function next() {
-    sound.stop()
+function playingTrack(status: boolean) { // play
+    isPlay.value = status;
+    if (status) {
+        sound.play()
+    } else {
+        sound.pause()
+    }
+}
 
-    trackIndex.value++
-    sound.play()
-    console.log(trackIndex.value, sound)
+function prevTrack() { // previous
+    if (trackIndex.value === 0) {
+        trackIndex.value = allSongs.length - 1;
+    } else {
+        trackIndex.value--;
+    }
+    newTrack()
+}
+
+function nextTrack() { // next
+    if (trackIndex.value === allSongs.length - 1) {
+        trackIndex.value = 0;
+    } else {
+        trackIndex.value++;
+    }
+    newTrack()
+}
+
+function newTrack() { // new
+    sound.stop();
+
+    sound = new Howl({
+        src: allSongs[trackIndex.value],
+        ...howlProps
+    })
+
+    playingTrack(true);
 }
 </script>
 
 <template>
     <Transition name="slide-fade" v-show="appearPlayer">
         <div class="player">
-            <v-btn>prev</v-btn>
-            <v-btn @click="sound.play()" v-if="!isPlay">play</v-btn>
-            <v-btn @click="sound.pause()" v-else>pause</v-btn>
-            <v-btn @click="next">next</v-btn>
+            {{ trackIndex + 1 }} / {{ allSongs.length }}
+            <v-btn @click="prevTrack">prev</v-btn>
+            <v-btn @click="playingTrack(true)" v-if="!isPlay">play</v-btn>
+            <v-btn @click="playingTrack(false)" v-else>pause</v-btn>
+            <v-btn @click="nextTrack">next</v-btn>
             <v-slider v-model="volume" direction="vertical" show-ticks min="0" max="1" step="0.1"
                 class="volume"></v-slider>
         </div>
