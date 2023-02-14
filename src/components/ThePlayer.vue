@@ -75,13 +75,13 @@ function newTrack() { // new
 <template>
     <Transition name="slide-fade" v-show="appearPlayer">
         <div class="player">
-            {{ trackIndex + 1 }} / {{ allSongs.length }}
-            <v-btn @click="prevTrack">prev</v-btn>
-            <v-btn @click="playingTrack(true)" v-if="!isPlay">play</v-btn>
-            <v-btn @click="playingTrack(false)" v-else>pause</v-btn>
-            <v-btn @click="nextTrack">next</v-btn>
-            <v-slider v-model="volume" direction="vertical" show-ticks min="0" max="1" step="0.1"
-                class="volume"></v-slider>
+            <div>{{ `${trackIndex + 1} / ${allSongs.length}` }}</div>
+            <v-btn @click="prevTrack">p</v-btn>
+            <v-btn @click="playingTrack(true)" v-if="!isPlay">y</v-btn>
+            <v-btn @click="playingTrack(false)" v-else>s</v-btn>
+            <v-btn @click="nextTrack">n</v-btn>
+            <v-slider class="volume" v-model="volume" min="0" max="1" step="0.1" direction="vertical"
+                show-ticks></v-slider>
         </div>
     </Transition>
 </template>
@@ -92,9 +92,10 @@ function newTrack() { // new
     z-index: 10;
     left: 0;
     top: 50%;
-    transform: translate(0, -50%);
-    background: grey;
+    transform: translate(-2px, -50%);
+    background: var(--color-grey);
     padding: 10px;
+    border: 2px solid var(--color-orange);
     border-radius: 0 5px 5px 0;
 
     button {

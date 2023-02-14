@@ -32,13 +32,14 @@ let titles = computed(() => {
 
 <style lang="scss">
 table {
+    padding: 20px 0;
     width: max-content;
     border: 1px solid transparent;
-    background-color: rgba($color: var(--color-indigo-opacity), $alpha: 0.5);
+    background-color: transparent;
 
     td {
         border: 1px solid #000;
-        background-color: rgba($color: #fff, $alpha: 0.9);
+        background-color: rgba($color: #fff, $alpha: 0.7);
         white-space: nowrap;
         padding: 10px;
 
