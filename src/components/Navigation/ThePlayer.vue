@@ -4,7 +4,7 @@ import { Howl } from 'howler';
 import allSongs from '@/audio/songs';
 
 let volume = ref<number>(0.2);
-let trackIndex = ref<number>(5);
+let trackIndex = ref<number>(8);
 let isPlay = ref<boolean>(false);
 
 let howlProps = {

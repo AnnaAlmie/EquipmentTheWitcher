@@ -1,13 +1,16 @@
-import { ref, computed } from 'vue'
-import { defineStore } from 'pinia'
+import { ref } from 'vue'
+import { defineStore } from 'pinia';
+import { ua, en } from '@/language/language';
 
 export const useLanguageStore = defineStore('language', () => {
 
-  const lang = ref<boolean>(true);
+  const status = ref<boolean>(true);
+  const lang = ref(ua);
 
-  function $changeLang() {
-    lang.value = !lang.value
+  function $changeStatus() {
+    status.value = !status.value;
+    status.value ? lang.value = ua : lang.value = en;
   }
 
-  return { lang, $changeLang }
+  return { status, lang, $changeStatus }
 })

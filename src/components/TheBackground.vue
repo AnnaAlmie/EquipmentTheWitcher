@@ -2,10 +2,10 @@
 import { computed } from 'vue';
 import { useLanguageStore } from '@/stores/store'
 
-const storeLang = useLanguageStore();
+const store = useLanguageStore();
 
 let background = computed(() => {
-    return storeLang.lang ? 'background: var(--color-grey)' : 'background: var(--color-orange)'
+    return store.status ? 'background: var(--color-grey)' : 'background: var(--color-orange)'
 })
 
 </script>
@@ -13,7 +13,7 @@ let background = computed(() => {
 <template>
     <div class="full-background" :style="background">
         <Transition name="fade" mode="out-in">
-            <img src="@/assets/img/bg/bg-openworld.jpg" v-if="storeLang.lang" alt="full screen background" />
+            <img src="@/assets/img/bg/bg-openworld.jpg" v-if="store.status" alt="full screen background" />
             <img src="@/assets/img/bg/bg-nextgen.jpg" v-else alt="full screen background" />
         </Transition>
     </div>

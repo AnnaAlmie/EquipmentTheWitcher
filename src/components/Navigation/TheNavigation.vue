@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { ref, onMounted, computed } from 'vue';
-import { useLanguageStore } from '@/stores/store'
+import { useLanguageStore } from '@/stores/store';
 import ThePlayer from './ThePlayer.vue';
 
-const storeLang = useLanguageStore();
+const store = useLanguageStore();
 let appearPlayer = ref<boolean>(false);
 
 let background = computed(() => {
-    return storeLang.lang ? 'background: var(--color-grey)' : 'background: var(--color-orange)'
+    return store.status ? 'background: var(--color-grey)' : 'background: var(--color-orange)'
 })
 
 onMounted(() => {
@@ -21,11 +21,11 @@ onMounted(() => {
 <template>
     <Transition name="slide-fade" v-show="appearPlayer">
         <div class="aside_nav" :style="background">
-            <v-switch hide-details inset :modelValue="storeLang.lang"
-                @update:modelValue="storeLang.$changeLang()"></v-switch>
+            <v-switch hide-details inset :modelValue="store.status"
+                @update:modelValue="store.$changeStatus()"></v-switch>
             <ThePlayer />
             <a href="https://github.com/AnnaAlmie/EquipmentTheWhitcher/tree/dev" target="_blank"
-                rel="noopener noreferrer" title="Code review / Перегляд коду">
+                rel="noopener noreferrer" :title="store.lang.code">
                 <mdicon name="folder-eye-outline" />
             </a>
         </div>

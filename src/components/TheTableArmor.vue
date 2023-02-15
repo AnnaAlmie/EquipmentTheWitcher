@@ -1,15 +1,17 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
-import { levels, equipments, schools } from '../language/ua';
+import { useLanguageStore } from '@/stores/store';
+const store = useLanguageStore();
 
-let titles = computed(() => {
-    let arr = levels.map((level) => {
-        return equipments.map((equipment) => {
-            return level + " " + equipment
-        })
-    })
-    return Array.prototype.concat.apply([], arr)
-})
+let tdClass = ref<string>("default")
+// let titles = computed(() => {
+//     let arr = levels.map((level) => {
+//         return equipments.map((equipment) => {
+//             return level + " " + equipment
+//         })
+//     })
+//     return Array.prototype.concat.apply([], arr)
+// })
 
 </script>
 
@@ -17,13 +19,13 @@ let titles = computed(() => {
     <div>
         <table>
             <thead>
-                <td>Школа</td>
-                <td v-for="school of schools" v-text="school"></td>
+                <td>{{ store.lang.school }}</td>
+                <td v-for="school of store.lang.schools" v-text="school"></td>
             </thead>
             <tbody>
-                <tr v-for="title in titles">
-                    <td>{{ title }}</td>
-                    <td v-for="item in schools.length">-</td>
+                <tr v-for="armor in store.lang.armor" :key="armor.id">
+                    <td>{{ armor.title }}</td>
+                    <td v-for="col in store.lang.schools.length" :class="['td-point', tdClass]"></td>
                 </tr>
             </tbody>
         </table>
@@ -39,12 +41,22 @@ table {
 
     td {
         border: 1px solid #000;
-        background-color: rgba($color: #fff, $alpha: 0.7);
+        background-color: rgba($color: #fff, $alpha: 0.8);
         white-space: nowrap;
         padding: 10px;
 
         &:not(:first-child) {
             width: 100px;
+            text-align: center;
+        }
+
+        &.td-point {
+            cursor: pointer;
+        }
+
+        //status
+        &.default:not(:hover) {
+            background-color: rgba($color: #fff, $alpha: 0.2);
         }
     }
 
