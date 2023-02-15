@@ -1,20 +1,13 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { useLanguageStore } from '@/stores/store'
 
-let imageIndex = ref<boolean>(true);
-
-onMounted(() => {
-    setInterval(() => {
-        return imageIndex.value = !imageIndex.value;
-    }, 10000)
-})
-
+const storeLang = useLanguageStore()
 </script>
 
 <template>
     <div class="full-background">
         <Transition name="fade" mode="out-in">
-            <img src="@/assets/img/bg/bg-openworld.jpg" v-if="imageIndex" alt="full screen background" />
+            <img src="@/assets/img/bg/bg-openworld.jpg" v-if="storeLang.lang" alt="full screen background" />
             <img src="@/assets/img/bg/bg-nextgen.jpg" v-else alt="full screen background" />
         </Transition>
     </div>

@@ -5,7 +5,7 @@ import 'vuetify/dist/vuetify.css'
 import allSongs from '@/audio/songs';
 
 let appearPlayer = ref<boolean>(false);
-let volume = ref<number>(0.3);
+let volume = ref<number>(0.2);
 let trackIndex = ref<number>(5);
 let isPlay = ref<boolean>(false);
 
@@ -74,20 +74,28 @@ function newTrack() { // new
 
 <template>
     <Transition name="slide-fade" v-show="appearPlayer">
-        <div class="player">
-            <div>{{ `${trackIndex + 1} / ${allSongs.length}` }}</div>
-            <v-btn @click="prevTrack">p</v-btn>
-            <v-btn @click="playingTrack(true)" v-if="!isPlay">y</v-btn>
-            <v-btn @click="playingTrack(false)" v-else>s</v-btn>
-            <v-btn @click="nextTrack">n</v-btn>
-            <v-slider class="volume" v-model="volume" min="0" max="1" step="0.1" direction="vertical"
-                show-ticks></v-slider>
+        <div class="aside_nav">
+            <v-switch hide-details inset></v-switch>
+            <div class="player">
+                <span>{{ `${trackIndex + 1} / ${allSongs.length}` }}</span>
+                <mdicon name="skip-previous-circle" @click="prevTrack" />
+                <mdicon name="play-circle" @click="playingTrack(true)" v-if="!isPlay" />
+                <mdicon name="pause-circle" @click="playingTrack(false)" v-else />
+                <mdicon name="skip-next-circle" @click="nextTrack" />
+                <v-slider class="volume" v-model="volume" min="0" max="1" step="0.1" direction="vertical" show-ticks
+                    color="white" thumb-color="white"></v-slider>
+            </div>
+            <a href="https://github.com/AnnaAlmie/EquipmentTheWhitcher/tree/dev" target="_blank"
+                rel="noopener noreferrer" title="Code review / Перегляд коду">
+                <mdicon name="folder-eye-outline" />
+            </a>
+
         </div>
     </Transition>
 </template>
 
 <style lang="scss" scoped>
-.player {
+.aside_nav {
     position: fixed;
     z-index: 10;
     left: 0;
@@ -95,13 +103,10 @@ function newTrack() { // new
     transform: translate(-2px, -50%);
     background: var(--color-grey);
     padding: 10px;
-    border: 2px solid var(--color-orange);
+    border: 1px solid var(--color-indigo);
     border-radius: 0 5px 5px 0;
-
-    button {
-        display: block;
-    }
-
+    color: #fff;
+    text-align: center;
 }
 
 // transitions 
@@ -125,5 +130,22 @@ function newTrack() { // new
 <style lang="scss">
 .volume.v-slider.v-input--vertical .v-input__control {
     min-height: 150px;
+}
+
+.player {
+    display: block;
+
+    svg {
+        display: block;
+        width: 100%;
+        height: 40px;
+        transition: var(--default-transition);
+        cursor: pointer;
+        will-change: opacity;
+
+        &:hover {
+            opacity: .7;
+        }
+    }
 }
 </style>
