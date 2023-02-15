@@ -5,9 +5,9 @@ export const useLanguageStore = defineStore('language', () => {
 
   const lang = ref<boolean>(true);
 
-  function changeLang() {
+  function $changeLang() {
     lang.value = !lang.value
   }
 
-  return { lang, changeLang }
+  return { lang, $changeLang }
 })

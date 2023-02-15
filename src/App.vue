@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router';
-import TheBackground from './components/TheBackground.vue';
-import ThePlayer from './components/ThePlayer.vue';
+import TheBackground from '@/components/TheBackground.vue';
+import TheNavigation from '@/components/Navigation/TheNavigation.vue';
 
 </script>
 
 <template>
   <v-app>
     <TheBackground />
-    <ThePlayer />
+    <TheNavigation />
 
     <RouterView />
   </v-app>
