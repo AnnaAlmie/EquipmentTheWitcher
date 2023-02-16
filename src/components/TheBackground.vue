@@ -25,8 +25,8 @@ let background = computed(() => {
     z-index: -1;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background-color: var(--color-grey);
     transition: 0.5s ease;
 

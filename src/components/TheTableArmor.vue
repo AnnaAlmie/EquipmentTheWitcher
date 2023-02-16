@@ -4,28 +4,28 @@ import { useLanguageStore } from '@/stores/store';
 const store = useLanguageStore();
 
 let tdClass = ref<string>("default")
-// let titles = computed(() => {
-//     let arr = levels.map((level) => {
-//         return equipments.map((equipment) => {
-//             return level + " " + equipment
-//         })
-//     })
-//     return Array.prototype.concat.apply([], arr)
-// })
 
+function changeClass(id: number, index: number) {
+    let idCell = `${id}.${index}`
+    console.log(idCell)
+}
 </script>
 
 <template>
     <div>
         <table>
             <thead>
-                <td>{{ store.lang.school }}</td>
-                <td v-for="school of store.lang.schools" v-text="school"></td>
+                <tr>
+                    <th>{{ store.lang.school }}</th>
+                    <th v-for="school of store.lang.schools" v-text="school"></th>
+                </tr>
+
             </thead>
             <tbody>
                 <tr v-for="armor in store.lang.armor" :key="armor.id">
                     <td>{{ armor.title }}</td>
-                    <td v-for="col in store.lang.schools.length" :class="['td-point', tdClass]"></td>
+                    <td v-for="(col, index) in store.lang.schools.length" :class="['td-point', tdClass]"
+                        @click="changeClass(armor.id, index)">{{ armor.id }} {{ index }}</td>
                 </tr>
             </tbody>
         </table>
@@ -38,10 +38,14 @@ table {
     width: max-content;
     border: 1px solid transparent;
     background-color: transparent;
+    position: relative;
+    margin: 0 auto;
 
-    td {
+    td,
+    th {
+        font-weight: 600;
         border: 1px solid #000;
-        background-color: rgba($color: #fff, $alpha: 0.8);
+        background-color: rgba($color: #fff, $alpha: 0.7);
         white-space: nowrap;
         padding: 10px;
 
@@ -58,6 +62,12 @@ table {
         &.default:not(:hover) {
             background-color: rgba($color: #fff, $alpha: 0.2);
         }
+    }
+
+    th {
+        position: sticky;
+        top: 0;
+        background-color: rgba($color: #fff, $alpha: 1);
     }
 
 }

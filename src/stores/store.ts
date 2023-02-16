@@ -14,3 +14,9 @@ export const useLanguageStore = defineStore('language', () => {
 
   return { status, lang, $changeStatus }
 })
+
+export const useGearStore = defineStore('gear', () => {
+
+
+  return {}
+})
