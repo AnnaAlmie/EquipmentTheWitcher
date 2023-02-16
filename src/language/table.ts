@@ -1,8 +1,4 @@
-type keyType = {
-    [key: string]: any
-}[]
-
-export const table: keyType = [
+export const table = [
     //Feline
     {
         id: 1.1,

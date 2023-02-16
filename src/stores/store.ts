@@ -4,8 +4,6 @@ import { useStorage } from '@vueuse/core';
 import { ua, en } from '@/language/language';
 import { table } from '@/language/table';
 
-
-
 export const useLanguageStore = defineStore('language', () => {
 
   const status = ref<boolean>(true);
@@ -21,10 +19,17 @@ export const useLanguageStore = defineStore('language', () => {
 
 export const useGearStore = defineStore('gear', () => {
   const tableCells = useStorage("cellStatus", table);
+  const idCell = ref<number>(0);
+  const indexCell = ref<number>(0);
 
-  function $changeCellStatus() {
-    console.log(table)
+
+  function $changeCellStatus(status: string) {
+    let selectedCell = tableCells.value.find(item => {
+      return item.id === idCell.value
+    })
+    // TODO: selectedCell!  - check the other way
+    selectedCell!.cells[indexCell.value] = status
   }
 
-  return { tableCells, $changeCellStatus }
+  return { tableCells, idCell, indexCell, $changeCellStatus }
 })

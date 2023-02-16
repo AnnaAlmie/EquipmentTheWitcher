@@ -8,8 +8,9 @@ const storeGear = useGearStore();
 const popup = ref<boolean>(false);
 
 function changeClass(id: number, index: number) {
-    let idCell = `${id}.${index}`
-    console.log(idCell)
+    storeGear.idCell = id;
+    storeGear.indexCell = index;
+    popup.value = true
 }
 
 </script>
@@ -26,11 +27,11 @@ function changeClass(id: number, index: number) {
                 <tr v-for="gear in storeGear.tableCells" :key="gear.id">
                     <td>{{ storeLang.lang.gear[gear.title] }}</td>
                     <td v-for="(cell, index) in gear.cells" :class="['td-point', cell]"
-                        @click="changeClass(gear.id, index)">{{ gear.id }} {{ index }} </td>
+                        @click="changeClass(gear.id, index)"></td>
                 </tr>
             </tbody>
         </table>
-        <ThePopupChangeCell v-if="popup" />
+        <ThePopupChangeCell v-if="popup" @click="popup = false" />
     </div>
 </template>
 
@@ -58,6 +59,7 @@ table {
 
         &.td-point {
             cursor: pointer;
+            transition: var(--default-transition);
 
             &:hover {
                 background-color: rgba($color: #fff, $alpha: 0.7);

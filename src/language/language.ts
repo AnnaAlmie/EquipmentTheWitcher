@@ -1,4 +1,8 @@
-export const ua = {
+type keyType = {
+    [key: string]: any
+}
+
+export const ua: keyType = {
     code: "Перегляд коду",
     schools: ["Школа", "Кота", "Вовка", "Грифона", "Ведмідя", "Змії", "Мантикори"],
     gear: {
@@ -35,7 +39,7 @@ export const ua = {
     }
 }
 
-export const en = {
+export const en: keyType = {
     code: "Code review",
     schools: ["School", "Cat", "Wolf", "Griffin", "Bear", "Viper", "Manticore"],
     gear: {
