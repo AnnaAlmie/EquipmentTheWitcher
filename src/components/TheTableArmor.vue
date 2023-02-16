@@ -1,14 +1,17 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue';
-import { useLanguageStore } from '@/stores/store';
-const store = useLanguageStore();
+import { ref } from 'vue';
+import { useLanguageStore, useGearStore } from '@/stores/store';
+import ThePopupChangeCell from '@/components/ThePopupChangeCell.vue'
 
-let tdClass = ref<string>("default")
+const storeLang = useLanguageStore();
+const storeGear = useGearStore();
+const popup = ref<boolean>(false);
 
 function changeClass(id: number, index: number) {
     let idCell = `${id}.${index}`
     console.log(idCell)
 }
+
 </script>
 
 <template>
@@ -16,19 +19,18 @@ function changeClass(id: number, index: number) {
         <table>
             <thead>
                 <tr>
-                    <th>{{ store.lang.school }}</th>
-                    <th v-for="school of store.lang.schools" v-text="school"></th>
+                    <th v-for="school of storeLang.lang.schools" v-text="school"></th>
                 </tr>
-
             </thead>
             <tbody>
-                <tr v-for="armor in store.lang.armor" :key="armor.id">
-                    <td>{{ armor.title }}</td>
-                    <td v-for="(col, index) in store.lang.schools.length" :class="['td-point', tdClass]"
-                        @click="changeClass(armor.id, index)">{{ armor.id }} {{ index }}</td>
+                <tr v-for="gear in storeGear.tableCells" :key="gear.id">
+                    <td>{{ storeLang.lang.gear[gear.title] }}</td>
+                    <td v-for="(cell, index) in gear.cells" :class="['td-point', cell]"
+                        @click="changeClass(gear.id, index)">{{ gear.id }} {{ index }} </td>
                 </tr>
             </tbody>
         </table>
+        <ThePopupChangeCell v-if="popup" />
     </div>
 </template>
 
@@ -56,11 +58,24 @@ table {
 
         &.td-point {
             cursor: pointer;
+
+            &:hover {
+                background-color: rgba($color: #fff, $alpha: 0.7);
+            }
         }
 
+
         //status
-        &.default:not(:hover) {
+        &.default {
             background-color: rgba($color: #fff, $alpha: 0.2);
+        }
+
+        &.loot {
+            background-color: var(--color-orange);
+        }
+
+        &.craft {
+            background-color: var(--color-blue);
         }
     }
 

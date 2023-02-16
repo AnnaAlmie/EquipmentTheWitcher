@@ -1,6 +1,10 @@
-import { ref } from 'vue'
+import { ref } from 'vue';
 import { defineStore } from 'pinia';
+import { useStorage } from '@vueuse/core';
 import { ua, en } from '@/language/language';
+import { table } from '@/language/table';
+
+
 
 export const useLanguageStore = defineStore('language', () => {
 
@@ -16,7 +20,11 @@ export const useLanguageStore = defineStore('language', () => {
 })
 
 export const useGearStore = defineStore('gear', () => {
+  const tableCells = useStorage("cellStatus", table);
 
+  function $changeCellStatus() {
+    console.log(table)
+  }
 
-  return {}
+  return { tableCells, $changeCellStatus }
 })

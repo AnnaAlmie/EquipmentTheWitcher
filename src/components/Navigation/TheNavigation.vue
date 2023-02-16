@@ -24,7 +24,7 @@ onMounted(() => {
             <v-switch hide-details inset :modelValue="store.status"
                 @update:modelValue="store.$changeStatus()"></v-switch>
             <ThePlayer />
-            <a href="https://github.com/AnnaAlmie/EquipmentTheWhitcher/tree/dev" target="_blank"
+            <a href="https://github.com/AnnaAlmie/EquipmentTheWitcher/tree/dev" target="_blank"
                 rel="noopener noreferrer" :title="store.lang.code">
                 <mdicon name="folder-eye-outline" />
             </a>
