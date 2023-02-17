@@ -73,11 +73,11 @@ table {
         }
 
         &.loot {
-            background-color: var(--color-orange);
+            background-color: var(--color-loot);
         }
 
         &.craft {
-            background-color: var(--color-blue);
+            background-color: var(--color-craft);
         }
     }
 

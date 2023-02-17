@@ -36,6 +36,12 @@ export const ua: keyType = {
         Grandmaster_boots: "Гросмейстерські чоботи",
         Grandmaster_steel_sword: "Гросмейстерський стальний меч",
         Grandmaster_silver_sword: "Гросмейстерський сріблястий меч",
+    },
+    popup: {
+        title: "Пошук був вдалим?",
+        craft: "Виготовлено, лежить в торбині",
+        loot: "Знайдено креслення",
+        default: "Досі нічого"
     }
 }
 
@@ -73,5 +79,11 @@ export const en: keyType = {
         Grandmaster_boots: "Grandmaster boots",
         Grandmaster_steel_sword: "Grandmaster steel sword",
         Grandmaster_silver_sword: "Grandmaster silver sword"
+    },
+    popup: {
+        title: "Did You find something?",
+        craft: "Finelly crafted",
+        loot: "Found some paper",
+        default: "Still nothing"
     }
 }

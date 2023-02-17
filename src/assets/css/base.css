@@ -1,14 +1,13 @@
 :root {
   --color-background: #ffffff;
-  --color-indigo-opacity: 13, 29, 42;
-  --section-gap: 160px;
   --color-orange: #f46d35;
   --color-red: #802c2a;
   --color-grey: #557b8e;
-  --color-perple: #3e323c;
-  --color-blue: #0d3648;
   --color-indigo: #1a2127;
   --default-transition: all .2s ease-in-out;
+
+  --color-craft: #00897B;
+  --color-loot: #ffd740;
 }
 
 
