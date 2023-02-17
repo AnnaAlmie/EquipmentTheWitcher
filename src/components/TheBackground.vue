@@ -7,7 +7,6 @@ const store = useLanguageStore();
 let background = computed(() => {
     return store.status ? 'background: var(--color-grey)' : 'background: var(--color-orange)'
 })
-
 </script>
 
 <template>
@@ -25,7 +24,7 @@ let background = computed(() => {
     z-index: -1;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
     height: 100%;
     background-color: var(--color-grey);
     transition: 0.5s ease;

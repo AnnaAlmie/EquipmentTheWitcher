@@ -22,13 +22,14 @@ export const useGearStore = defineStore('gear', () => {
   const idCell = ref<number>(0);
   const indexCell = ref<number>(0);
 
-
   function $changeCellStatus(status: string) {
     let selectedCell = tableCells.value.find(item => {
       return item.id === idCell.value
     })
-    // TODO: selectedCell!  - check the other way
-    selectedCell!.cells[indexCell.value] = status
+
+    if (selectedCell) {
+      selectedCell.cells[indexCell.value] = status
+    }
   }
 
   return { tableCells, idCell, indexCell, $changeCellStatus }

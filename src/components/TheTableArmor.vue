@@ -12,7 +12,6 @@ function changeClass(id: number, index: number) {
     storeGear.indexCell = index;
     popup.value = true
 }
-
 </script>
 
 <template>
@@ -66,7 +65,6 @@ table {
             }
         }
 
-
         //status
         &.default {
             background-color: rgba($color: #fff, $alpha: 0.2);
@@ -86,6 +84,5 @@ table {
         top: 0;
         background-color: rgba($color: #fff, $alpha: 1);
     }
-
 }
 </style>

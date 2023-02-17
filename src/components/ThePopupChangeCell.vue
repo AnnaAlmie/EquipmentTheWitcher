@@ -4,7 +4,6 @@ import { useLanguageStore, useGearStore } from '@/stores/store';
 
 const storeGear = useGearStore();
 const LanguageStore = useLanguageStore();
-
 const dialog = ref<boolean>(true)
 </script>
 
