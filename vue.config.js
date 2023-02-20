@@ -1,3 +1,5 @@
 module.exports = {
-    publicPath: '/EquipmentTheWitcher/'
+    publicPath: process.env.NODE_ENV === 'production'
+        ? '/my-project/'
+        : '/'
 }
