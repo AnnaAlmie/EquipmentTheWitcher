@@ -2,7 +2,7 @@ import { ref } from 'vue';
 import { defineStore } from 'pinia';
 import { useStorage } from '@vueuse/core';
 import { ua, en } from '@/language/language';
-import { table } from '@/language/table';
+import { gearTable, stonesTable } from '@/language/table';
 
 export const useLanguageStore = defineStore('language', () => {
 
@@ -18,7 +18,25 @@ export const useLanguageStore = defineStore('language', () => {
 })
 
 export const useGearStore = defineStore('gear', () => {
-  const tableCells = useStorage("cellStatus", table);
+  const tableCells = useStorage("gearСellStatus", gearTable);
+  const idCell = ref<number>(0);
+  const indexCell = ref<number>(0);
+
+  function $changeCellStatus(status: string) {
+    let selectedCell = tableCells.value.find(item => {
+      return item.id === idCell.value
+    })
+
+    if (selectedCell) {
+      selectedCell.cells[indexCell.value] = status
+    }
+  }
+
+  return { tableCells, idCell, indexCell, $changeCellStatus }
+})
+
+export const useStonesStore = defineStore('stones', () => {
+  const tableCells = useStorage("stonesСellStatus", stonesTable);
   const idCell = ref<number>(0);
   const indexCell = ref<number>(0);
 

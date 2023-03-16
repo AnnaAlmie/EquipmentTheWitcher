@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import TheTableArmor from '@/components/TheTableArmor.vue'
+import TheTables from '@/components/tables/TheTables.vue'
 </script>
 
 <template>
-    <TheTableArmor />
+    <TheTables />
 </template>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

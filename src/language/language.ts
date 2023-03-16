@@ -42,6 +42,28 @@ export const ua: keyType = {
         craft: "Виготовлено, лежить в торбині",
         loot: "Знайдено креслення",
         default: "Досі нічого"
+    },
+    stonesLevel: ["", "", "Малий", "Стандартний", "Великий"],
+    stones: {
+        Dazhdbog: "Даждьбог",
+        Chernobog: "Чернобог",
+        Devana: "Девана",
+        Morana: "Марена",
+        Perun: "Перун",
+        Svarog: "Сварог",
+        Stribog: "Стрибог",
+        Triglav: "Триглав",
+        Veles: "Велес",
+        Zoria: "Зоря",
+        Yrden: "Ірдена",
+        Quen: "Квена",
+        Igni: "Ігні",
+        Axii: "Аксія",
+        Aard: "Аарда",
+        Binding: "Зв'язуючий",
+        Mending: "Покращенний",
+        Reinforcement: "Армування",
+        Warding: "Охорона"
     }
 }
 
@@ -85,5 +107,27 @@ export const en: keyType = {
         craft: "Finelly crafted",
         loot: "Found some paper",
         default: "Still nothing"
+    },
+    stonesLevel: ["", "", "Little", "Default", "Large"],
+    stones: {
+        Dazhdbog: "Dazhdbog",
+        Chernobog: "Chernobog",
+        Devana: "Devana",
+        Morana: "Morana",
+        Perun: "Perun",
+        Svarog: "Svarog",
+        Stribog: "Stribog",
+        Triglav: "Triglav",
+        Veles: "Veles",
+        Zoria: "Zoria",
+        Yrden: "Yrden",
+        Quen: "Quen",
+        Igni: "Igni",
+        Axii: "Axii",
+        Aard: "Aard",
+        Binding: "Binding",
+        Mending: "Mending",
+        Reinforcement: "Reinforcement",
+        Warding: "Warding"
     }
 }
