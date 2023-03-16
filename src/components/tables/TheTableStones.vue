@@ -22,7 +22,8 @@ function changeClass(id: number, index: number, cell: string) {
         <tbody>
             <tr v-for="stones in storeStones.tableCells" :key="stones.id">
                 <td>
-                    <img :src="`src/assets/img/stones/${stones.title}.webp`" />
+                    <!-- <img :src="`/stones/${stones.title}.webp`" /> -->
+                    <img :src="`/EquipmentTheWitcher/stones/${stones.title}.webp`" />
                 </td>
                 <td>{{ storeLang.lang.stones[stones.title] }}</td>
                 <td v-for="(cell, index) in stones.cells" :class="['td-point cell_size', cell]"
