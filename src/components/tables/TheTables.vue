@@ -7,6 +7,7 @@ import TheTableStones from '@/components/tables/TheTableStones.vue'
 <template>
     <div>
         <TheTableArmor />
+        <!--  -->
         <TheTableStones />
     </div>
 </template>
