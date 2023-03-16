@@ -161,116 +161,107 @@ export const stonesTable = [
     {
         id: 11,
         title: "Dazhdbog",
-        image: "https://warha.ru/img/page/2015/rune_dazhbog_64x64.png.6960.png",
         cells: ["default", "default", "default"]
     },
     {
         id: 12,
         title: "Chernobog",
-        image: "https://warha.ru/img/page/2015/rune_elemental_64x64.png.6966.png",
         cells: ["default", "default", "default"]
     },
     {
         id: 13,
         title: "Devana",
-        image: "https://warha.ru/img/page/2015/rune_devana_64x64.png.6963.png",
         cells: ["default", "default", "default"]
     },
     {
         id: 14,
         title: "Morana",
-        image: "https://warha.ru/img/page/2015/rune_morana_64x64.png.6969.png",
         cells: ["default", "default", "default"]
     },
     {
         id: 15,
         title: "Perun",
-        image: "https://warha.ru/img/page/2015/rune_perun_64x64.png.6972.png",
         cells: ["default", "default", "default"]
     },
     {
         id: 16,
         title: "Svarog",
-        image: "https://warha.ru/img/page/2015/rune_svarog_64x64.png.6978.png",
         cells: ["default", "default", "default"]
     },
     {
         id: 17,
         title: "Stribog",
-        image: "https://warha.ru/img/page/2015/rune_stribog_64x64.png.6975.png",
         cells: ["default", "default", "default"]
     },
     {
         id: 18,
         title: "Triglav",
-        image: "https://warha.ru/img/page/2015/rune_triglav_64x64.png.6981.png",
         cells: ["default", "default", "default"]
     },
     {
         id: 19,
         title: "Veles",
-        image: "https://warha.ru/img/page/2015/rune_veles_64x64.png.6984.png",
         cells: ["default", "default", "default"]
     },
     {
         id: 20,
         title: "Zoria",
-        image: "https://warha.ru/img/page/2015/rune_zoria_64x64.png.6987.png",
         cells: ["default", "default", "default"]
+    },
+    {
+        id: 30,
+        title: "Pie",
+        cells: ["noexist", "default", "noexist"]
+    },
+    {
+        id: 31,
+        title: "Curd",
+        cells: ["noexist", "default", "noexist"]
     },
     //glifs
     {
         id: 21,
         title: "Yrden",
-        image: "https://warha.ru/img/page/2017/Tw3_glyph_yrden.png",
         cells: ["default", "default", "default"]
     },
     {
         id: 22,
         title: "Quen",
-        image: "https://warha.ru/img/page/2017/Tw3_glyph_quen.png",
         cells: ["default", "default", "default"]
     },
     {
         id: 23,
         title: "Igni",
-        image: "https://warha.ru/img/page/2017/Tw3_glyph_igni.png",
         cells: ["default", "default", "default"]
     },
     {
         id: 24,
         title: "Axii",
-        image: "https://warha.ru/img/page/2017/Tw3_glyph_axii.png",
         cells: ["default", "default", "default"]
     },
     {
         id: 25,
         title: "Aard",
-        image: "https://warha.ru/img/page/2017/Tw3_glyph_aard.png",
         cells: ["default", "default", "default"]
     },
     {
         id: 26,
         title: "Binding",
-        image: "https://warha.ru/img/page/2017/Tw3_glyph_binding.png",
         cells: ["default", "default", "default"]
     },
     {
         id: 27,
         title: "Mending",
-        image: "https://warha.ru/img/page/2017/Tw3_glyph_mending.png",
         cells: ["default", "default", "default"]
     },
     {
         id: 28,
         title: "Reinforcement",
-        image: "https://warha.ru/img/page/2017/Tw3_glyph_reinforcement.png",
         cells: ["default", "default", "default"]
     },
     {
         id: 29,
         title: "Warding",
-        image: "https://warha.ru/img/page/2017/Tw3_glyph_warding.png",
         cells: ["default", "default", "default"]
-    },
+    }
 ]
