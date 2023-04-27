@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { useLanguageStore } from '@/stores/store'
+import { useLanguageStore } from '@/stores/store';
 
 const store = useLanguageStore();
 

@@ -1,4 +1,10 @@
-export const gearTable = [
+type TTable = {
+    id: number,
+    title: string,
+    cells: string[]
+}
+
+export const gearTable: TTable[] = [
     //Feline
     {
         id: 1.1,
@@ -156,7 +162,7 @@ export const gearTable = [
     }
 ]
 
-export const stonesTable = [
+export const stonesTable: TTable[] = [
     //runes
     {
         id: 11,

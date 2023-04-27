@@ -1,8 +1,22 @@
-type keyType = {
-    [key: string]: any
+interface TLang {
+    code: string,
+    schools: string[],
+    gear: {
+        [key: string]: string;
+    },
+    popup: {
+        title: string,
+        craft: string,
+        loot: string,
+        default: string
+    },
+    stonesLevel: string[],
+    stones: {
+        [key: string]: string;
+    }
 }
 
-export const ua: keyType = {
+export const ua: TLang = {
     code: "Перегляд коду",
     schools: ["Школа", "Кота", "Вовка", "Грифона", "Ведмідя", "Змії", "Мантикори"],
     gear: {
@@ -69,7 +83,7 @@ export const ua: keyType = {
     }
 }
 
-export const en: keyType = {
+export const en: TLang = {
     code: "Code review",
     schools: ["School", "Cat", "Wolf", "Griffin", "Bear", "Viper", "Manticore"],
     gear: {

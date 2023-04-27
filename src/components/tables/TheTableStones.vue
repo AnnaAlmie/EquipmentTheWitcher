@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useLanguageStore, useStonesStore } from '@/stores/store';
+import { useLanguageStore, useStonesStore } from '@/stores/store'; 
 
 const storeLang = useLanguageStore();
 const storeStones = useStonesStore();
@@ -24,6 +24,10 @@ function changeClass(id: number, index: number, cell: string) {
                 <td>
                     <!-- <img :src="`/stones/${stones.title}.webp`" /> -->
                     <img :src="`/EquipmentTheWitcher/stones/${stones.title}.webp`" />
+                    <!-- function getImageUrl(name) {
+                                return new URL(`./dir/${name}.png`, import.meta.url).href
+                        } -->
+
                 </td>
                 <td>{{ storeLang.lang.stones[stones.title] }}</td>
                 <td v-for="(cell, index) in stones.cells" :class="['td-point cell_size', cell]"
