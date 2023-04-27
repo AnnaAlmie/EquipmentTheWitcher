@@ -50,6 +50,7 @@ export const ua: TLang = {
         Grandmaster_boots: "Гросмейстерські чоботи",
         Grandmaster_steel_sword: "Гросмейстерський стальний меч",
         Grandmaster_silver_sword: "Гросмейстерський сріблястий меч",
+        crossbow: "Арбалет"
     },
     popup: {
         title: "Пошук був вдалим?",
@@ -116,7 +117,8 @@ export const en: TLang = {
         Grandmaster_trousers: "Grandmaster trousers",
         Grandmaster_boots: "Grandmaster boots",
         Grandmaster_steel_sword: "Grandmaster steel sword",
-        Grandmaster_silver_sword: "Grandmaster silver sword"
+        Grandmaster_silver_sword: "Grandmaster silver sword",
+        crossbow: "Crossbow"
     },
     popup: {
         title: "Did You find something?",

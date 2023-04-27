@@ -159,6 +159,12 @@ export const gearTable: TTable[] = [
         id: 5.6,
         title: "Grandmaster_silver_sword",
         cells: ["default", "default", "default", "default", "default", "default"]
+    },
+    //
+    {
+        id: 20,
+        title: "crossbow",
+        cells: ["default", "noexist", "noexist", "default", "noexist", "noexist"]
     }
 ]
 
