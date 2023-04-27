@@ -21,12 +21,11 @@ onMounted(() => {
 <template>
     <Transition name="slide-fade" v-show="appearPlayer">
         <div class="aside_nav" :style="background">
-            <v-switch hide-details inset :modelValue="store.status"
-                @update:modelValue="store.$changeStatus()"></v-switch>
+            <v-switch hide-details inset :modelValue="store.status" @update:modelValue="store.$changeStatus()"></v-switch>
             <ThePlayer />
-            <a href="https://github.com/AnnaAlmie/EquipmentTheWitcher/tree/dev" target="_blank"
+            <a class="icon_nav" href="https://github.com/AnnaAlmie/EquipmentTheWitcher/tree/dev" target="_blank"
                 rel="noopener noreferrer" :title="store.lang.code">
-                <mdicon name="folder-eye-outline" />
+                <mdicon name="github" width="30" height="30" />
             </a>
         </div>
     </Transition>
@@ -36,16 +35,56 @@ onMounted(() => {
 .aside_nav {
     position: fixed;
     z-index: 10;
-    left: 0;
-    top: 50%;
-    transform: translate(-2px, -50%);
     background: var(--color-grey);
     padding: 10px;
     border: 1px solid var(--color-indigo);
-    border-radius: 0 5px 5px 0;
     color: #fff;
     text-align: center;
     transition: 0.5s ease;
+}
+
+@media screen and (max-width: 1059px) {
+    .aside_nav {
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 2px);
+        border-radius: 5px 5px 0 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0 10px;
+
+        .icon_nav {
+            margin-left: 10px;
+        }
+    }
+
+    .slide-fade- {
+
+        &enter-from,
+        &leave-to {
+            transform: translate(-50%, 100%);
+            opacity: 0;
+        }
+    }
+}
+
+@media screen and (min-width: 1060px) {
+    .aside_nav {
+        left: 0;
+        top: 50%;
+        transform: translate(-2px, -50%);
+        border-radius: 0 5px 5px 0;
+    }
+
+    .slide-fade- {
+
+        &enter-from,
+        &leave-to {
+            transform: translate(-100%, -50%);
+            opacity: 0;
+        }
+    }
 }
 
 // transitions 
@@ -58,10 +97,6 @@ onMounted(() => {
         transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
     }
 
-    &enter-from,
-    &leave-to {
-        transform: translate(-100%, -50%);
-        opacity: 0;
-    }
+
 }
 </style>

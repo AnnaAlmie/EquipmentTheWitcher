@@ -71,30 +71,38 @@ function newTrack() { // new
         <mdicon name="play-circle" @click="playingTrack(true)" v-if="!isPlay" />
         <mdicon name="pause-circle" @click="playingTrack(false)" v-else />
         <mdicon name="skip-next-circle" @click="nextTrack" />
-        <v-slider class="volume" v-model="volume" min="0" max="1" step="0.1" direction="vertical" show-ticks
-            color="white" thumb-color="white"></v-slider>
+        <v-slider class="volume" v-model="volume" min="0" max="1" step="0.1" direction="vertical" show-ticks color="white"
+            thumb-color="white"></v-slider>
     </div>
 </template>
 
 
 <style lang="scss">
-.volume.v-slider.v-input--vertical .v-input__control {
-    min-height: 150px;
+@media screen and (max-width: 1059px) {
+    .player {
+        display: none;
+    }
 }
 
-.player {
-    display: block;
+@media screen and (min-width: 1060px) {
+    .volume.v-slider.v-input--vertical .v-input__control {
+        min-height: 150px;
+    }
 
-    svg {
+    .player {
         display: block;
-        width: 100%;
-        height: 40px;
-        transition: var(--default-transition);
-        cursor: pointer;
-        will-change: opacity;
 
-        &:hover {
-            opacity: .7;
+        svg {
+            display: block;
+            width: 100%;
+            height: 40px;
+            transition: var(--default-transition);
+            cursor: pointer;
+            will-change: opacity;
+
+            &:hover {
+                opacity: .7;
+            }
         }
     }
 }
