@@ -15,23 +15,22 @@ function changeClass(id: number, index: number) {
 </script>
 
 <template>
-    <div>
-        <table>
-            <thead>
-                <tr>
-                    <th v-for="school of storeLang.lang.schools" v-text="school"></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="gear in storeGear.tableCells" :key="gear.id">
-                    <td>{{ storeLang.lang.gear[gear.title] }}</td>
-                    <td v-for="(cell, index) in gear.cells" :class="['td-point', cell]"
-                        @click="changeClass(gear.id, index)"></td>
-                </tr>
-            </tbody>
-        </table>
-        <ThePopupChangeCell v-if="popup" @click="popup = false" />
-    </div>
+    <table data-table="gear">
+        <thead>
+            <tr>
+                <th v-for="school of storeLang.lang.schools" v-text="school"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="gear in storeGear.tableCells" :key="gear.id">
+                <td>{{ storeLang.lang.gear[gear.title] }}</td>
+                <td v-for="(cell, index) in gear.cells" :class="['td-point', cell]" @click="changeClass(gear.id, index)"
+                    :data-cell="storeLang.lang.schools[index + 1]">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <ThePopupChangeCell v-if="popup" @click="popup = false" />
 </template>
 
-<style lang="scss"></style>
+<style lang="scss"></style> 

@@ -15,19 +15,18 @@ onMounted(() => {
         appearPlayer.value = true
     }, 1000)
 })
-
 </script>
 
 <template>
     <Transition name="slide-fade" v-show="appearPlayer">
-        <div class="aside_nav" :style="background">
+        <aside class="aside_nav" :style="background">
             <v-switch hide-details inset :modelValue="store.status" @update:modelValue="store.$changeStatus()"></v-switch>
             <ThePlayer />
             <a class="icon_nav" href="https://github.com/AnnaAlmie/EquipmentTheWitcher/tree/dev" target="_blank"
                 rel="noopener noreferrer" :title="store.lang.code">
                 <mdicon name="github" width="30" height="30" />
             </a>
-        </div>
+        </aside>
     </Transition>
 </template>
 

@@ -5,5 +5,3 @@ import TheTables from '@/components/tables/TheTables.vue'
 <template>
     <TheTables />
 </template>
-
-<style lang="scss" scoped></style>
