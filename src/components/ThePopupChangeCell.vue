@@ -30,6 +30,15 @@ const dialog = ref<boolean>(true);
     </v-dialog>
 </template>
 
+<style lang="scss">
+//mobile 
+@media screen and (max-width: 966px) {
+    .v-btn__content {
+        white-space: normal;
+    }
+}
+</style>
+
 <style lang="scss" scoped>
 .craft {
     color: var(--color-craft)
