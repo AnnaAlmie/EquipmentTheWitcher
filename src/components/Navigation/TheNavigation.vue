@@ -95,7 +95,5 @@ onMounted(() => {
     &leave-active {
         transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
     }
-
-
 }
 </style>

@@ -1,6 +1,6 @@
-@import './reset.scss';
-@import './base.css';
-@import './table.scss';
+@import "./reset.scss";
+@import "./base.css";
+@import "./table.scss";
 
 #app {
   max-width: 1280px;
@@ -20,6 +20,16 @@ a {
 
 @media (hover: hover) {
   a:hover {
-    opacity: .7;
+    opacity: 0.7;
+  }
+}
+@media screen and (max-width: 966.1px) {
+  .only-desktop {
+    display: none;
+  }
+}
+@media screen and (min-width: 966px) {
+  .only-mobile {
+    display: none;
   }
 }
