@@ -13,6 +13,25 @@ const changeClass = (id?: string) => {
   idCell.value = id || "";
   popup.value = true;
 };
+
+const isEmptyState = (id: string) => {
+  if (!id) {
+    return;
+  }
+  const idSets = [
+    "viper_armor_enhanced",
+    "viper_armor_superior",
+    "viper_armor_mastercrafted",
+    "viper_armor_grandmaster",
+    "forgotten_wolf_armor_enhanced",
+    "forgotten_wolf_armor_superior",
+    "manticore_armor_enhanced",
+    "manticore_armor_superior",
+    "manticore_armor_mastercrafted",
+    "manticore_armor_grandmaster",
+  ];
+  return idSets.some((idSet) => id.includes(idSet));
+};
 </script>
 
 <template>
@@ -20,7 +39,7 @@ const changeClass = (id?: string) => {
     <table data-table="gear">
       <thead>
         <tr>
-          <th colspan="7">
+          <th colspan="7" class="header-sticky">
             <h2 class="text-center">
               {{ storeLang.lang.schools[school.title] }}
             </h2>
@@ -37,8 +56,11 @@ const changeClass = (id?: string) => {
           v-for="(levels, indexLevels) in storeLang.lang.levels"
           :key="indexLevels"
         >
-          <td>{{ levels }}</td>
-          <template v-for="gear in school.gear" :key="gear.id_title">
+          <td class="main-level">{{ levels }}</td>
+          <template
+            v-for="(gear, gearIndex) in school.gear"
+            :key="gear.id_title"
+          >
             <template
               v-for="(grade, indexGrade) in gear.grade"
               :key="indexGrade"
@@ -51,7 +73,20 @@ const changeClass = (id?: string) => {
                 :data-cell="storeLang.lang.gears[gear.id_title]"
                 @click="changeClass(grade.id)"
               >
-                <small>lvl.</small>{{ grade.level }}
+                <div class="d-flex align-center">
+                  <small>{{ storeLang.lang.level }}</small
+                  >{{ grade.level }}
+                </div>
+              </td>
+              <td
+                v-else-if="
+                  grade.id_title === indexLevels &&
+                  grade.status === 'noexist' &&
+                  !!isEmptyState(grade.id)
+                "
+                class="noexist"
+              >
+                {{}}
               </td>
             </template>
           </template>
@@ -60,7 +95,6 @@ const changeClass = (id?: string) => {
 
       <tbody class="only-desktop">
         <tr v-for="gear in school.gear" :key="gear.id_title">
-          <td :data-cell="storeLang.lang.gears[gear.id_title]">img</td>
           <td>{{ storeLang.lang.gears[gear.id_title] }}</td>
           <template
             v-for="(levels, indexLevels) in storeLang.lang.levels"
@@ -108,6 +142,15 @@ const changeClass = (id?: string) => {
       &::before {
         content: attr(data-cell);
       }
+    }
+    td,
+    th {
+      &:not(:first-child) {
+        width: unset;
+      }
+    }
+    .main-level {
+      max-width: 98px;
     }
   }
 }

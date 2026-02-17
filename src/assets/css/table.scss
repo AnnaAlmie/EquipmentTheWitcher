@@ -48,8 +48,10 @@ table {
   }
 
   th {
-    position: sticky;
-    top: 0;
     background-color: rgba($color: #fff, $alpha: 1);
+    &.header-sticky {
+      position: sticky;
+      top: 0;
+    }
   }
 }

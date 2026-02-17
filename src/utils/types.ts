@@ -33,6 +33,7 @@ export interface TLang {
   gears: {
     [key: string]: string;
   };
+  level: string;
   levels: {
     [key: string]: string;
   };

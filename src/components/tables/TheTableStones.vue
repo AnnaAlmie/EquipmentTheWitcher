@@ -17,7 +17,11 @@ function changeClass(id: number, index: number, cell: string) {
   <table data-table="stones">
     <thead>
       <tr>
-        <th v-for="level of storeLang.lang.stonesLevel" v-text="level"></th>
+        <th
+          v-for="level of storeLang.lang.stonesLevel"
+          v-text="level"
+          class="header-sticky"
+        />
       </tr>
     </thead>
     <tbody>
